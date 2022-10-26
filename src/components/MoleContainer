@@ -3,7 +3,7 @@ import Mole from './Mole'
 import EmptySlot from './EmptySlot'
 
 //A handleClick function that will increment the score by 1 and immediately set the clicked-on mole to no longer display (we will pass this down only to Mole components)
-//A ternary that will determine which child to rende
+//A ternary that will determine which child to render
 
 const MoleContainer = (props) => {
     let [theMole, setTheMole] = useState(false)
@@ -13,7 +13,15 @@ const MoleContainer = (props) => {
         setTheMole(false)
     }
 
-    let displayMole = theMole ? <Mole setScore={props.setScore} toggle={setTheMole} handleClick={handleClick} /> : <EmptySlot toggle={setTheMole} />
+    let displayMole = theMole 
+        ? <Mole
+            setScore={props.setScore}
+            ontoggle={setTheMole}
+            handleClick={handleClick}
+            /> 
+        
+        : <EmptySlot 
+            ontoggle={setTheMole} />
 
     return (
         <div style={{'display': 'inline-block', 'width': '30vw'}}>
